@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Wall.Entities
 {
-    public class publication
+    public class Publication
     {
         public Guid Id { get; set; }
         public Guid AuthorId { get; set; }
