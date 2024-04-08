@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -8,9 +9,11 @@ namespace Wall.Entities
 {
     public class Publication
     {
-        public Guid Id { get; set; }
-        public Guid AuthorId { get; set; }
-        public string Message { get; set; }
-        public DateTime Date { get; set; }
+        public Guid id { get; set; }
+        [StringLength(512)]
+        public string message { get; set; }
+        public DateTime date { get; set; }
+        public Guid userId { get; set; }
+        public User User { get; set; }
     }
 }
