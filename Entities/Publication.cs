@@ -9,11 +9,11 @@ namespace Wall.Entities
 {
     public class Publication
     {
-        public Guid id { get; set; }
+        public Guid Id { get; set; }
         [StringLength(512)]
-        public string message { get; set; }
-        public DateTime date { get; set; }
-        public Guid userId { get; set; }
-        public User User { get; set; }
+        public string Message { get; set; }
+        public DateTime Date { get; set; }
+        public Guid UserId { get; set; }
+        public ChatUser User { get; set; }
     }
 }
