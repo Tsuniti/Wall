@@ -27,7 +27,6 @@ namespace Wall
 
             InitializeComponent();
 
-
             MyHubConnection = new HubConnectionBuilder()
                 .WithUrl("https://localhost:7005/chat")
                 .Build();
@@ -48,11 +47,11 @@ namespace Wall
 
         }
 
-        private async Task HubConnection_Closed(Exception? arg)
-        {
-            await Task.Delay(new Random().Next(0, 5) * 1000);
-            await MyHubConnection.StartAsync();
-        }
+        //private async Task HubConnection_Closed(Exception? arg)
+        //{
+        //    await Task.Delay(new Random().Next(0, 5) * 1000);     // idk how to use it
+        //    await MyHubConnection.StartAsync();
+        //}
         private void ShowMessage(string user, string message, DateTime? date = null)
         {
             bool IsScrollBottom = (AllMessagesPanel.VerticalScroll.Value + AllMessagesPanel.VerticalScroll.LargeChange >= AllMessagesPanel.VerticalScroll.Maximum);
@@ -71,7 +70,7 @@ namespace Wall
 
             AllMessagesPanel.Controls.Add(publicationPanel);
 
-            if(IsScrollBottom)
+            if (IsScrollBottom)
             {
                 AllMessagesPanel.ScrollControlIntoView(publicationPanel);
             }
@@ -106,8 +105,15 @@ namespace Wall
                 UsernameLabel.Text = "Guest";
                 NewMessageTextBox.Enabled = false;
             }
-        }
+            AllMessagesPanel.VerticalScroll.Value = AllMessagesPanel.VerticalScroll.Maximum;
 
+
+        }
+        private void MainForm_Shown(object sender, EventArgs e)
+        {
+            // Почему-то до этого фокусировка была на CloseButton и при нажатии Enter форма закрывалась
+            UsernameLabel.Focus();      
+        }
         private async void sendButton_Click(object sender, EventArgs e)
         {
             if (NewMessageTextBox.Text != string.Empty)
@@ -122,7 +128,8 @@ namespace Wall
                 {
                     ShowMessage("System", ex.Message);
                 }
-            NewMessageTextBox.Text = String.Empty;
+                AllMessagesPanel.VerticalScroll.Value = AllMessagesPanel.VerticalScroll.Maximum;
+                NewMessageTextBox.Text = String.Empty;
             }
         }
 
@@ -169,5 +176,7 @@ namespace Wall
             }
 
         }
+
+
     }
 }

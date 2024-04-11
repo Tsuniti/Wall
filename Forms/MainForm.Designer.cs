@@ -84,6 +84,7 @@ partial class MainForm
         NewMessageTextBox.Font = new Font("Segoe UI", 9F);
         NewMessageTextBox.ForeColor = Color.White;
         NewMessageTextBox.Location = new Point(3, 24);
+        NewMessageTextBox.MaxLength = 195;
         NewMessageTextBox.Multiline = true;
         NewMessageTextBox.Name = "NewMessageTextBox";
         NewMessageTextBox.Size = new Size(562, 77);
@@ -173,6 +174,7 @@ partial class MainForm
         Name = "MainForm";
         Text = "MainForm";
         Load += MainForm_Load;
+        Shown += MainForm_Shown;
         WriteMessagePanel.ResumeLayout(false);
         WriteMessagePanel.PerformLayout();
         ResumeLayout(false);
