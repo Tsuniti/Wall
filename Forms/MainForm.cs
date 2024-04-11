@@ -79,7 +79,7 @@ namespace Wall
         private async void MainForm_Load(object sender, EventArgs e)
         {
             TitleBarPanel.ParentForm = this;
-
+           
             try
             {
                 // подключемся к хабу

@@ -38,6 +38,10 @@ partial class MainForm
         LogInButton = new Button();
         SignUpButton = new Button();
         LogOutLinkLabel = new LinkLabel();
+        ScrollBarOverflowRightPanel = new Panel();
+        ScrollBarOverflowLeftPanel = new Panel();
+        ScrollBarOverflowTopPanel = new Panel();
+        ScrollBarOverflowBottomPanel = new Panel();
         WriteMessagePanel.SuspendLayout();
         SuspendLayout();
         // 
@@ -48,7 +52,7 @@ partial class MainForm
         AllMessagesPanel.BorderStyle = BorderStyle.FixedSingle;
         AllMessagesPanel.Location = new Point(12, 109);
         AllMessagesPanel.Name = "AllMessagesPanel";
-        AllMessagesPanel.Size = new Size(663, 450);
+        AllMessagesPanel.Size = new Size(651, 450);
         AllMessagesPanel.TabIndex = 0;
         // 
         // WriteMessagePanel
@@ -118,7 +122,7 @@ partial class MainForm
         LogInButton.FlatStyle = FlatStyle.Flat;
         LogInButton.Font = new Font("Segoe UI", 10F);
         LogInButton.ForeColor = Color.White;
-        LogInButton.Location = new Point(561, 62);
+        LogInButton.Location = new Point(568, 62);
         LogInButton.Name = "LogInButton";
         LogInButton.Size = new Size(94, 41);
         LogInButton.TabIndex = 4;
@@ -133,7 +137,7 @@ partial class MainForm
         SignUpButton.FlatStyle = FlatStyle.Flat;
         SignUpButton.Font = new Font("Segoe UI", 10F);
         SignUpButton.ForeColor = Color.White;
-        SignUpButton.Location = new Point(461, 62);
+        SignUpButton.Location = new Point(468, 62);
         SignUpButton.Name = "SignUpButton";
         SignUpButton.Size = new Size(94, 41);
         SignUpButton.TabIndex = 5;
@@ -146,7 +150,7 @@ partial class MainForm
         LogOutLinkLabel.ActiveLinkColor = Color.WhiteSmoke;
         LogOutLinkLabel.AutoSize = true;
         LogOutLinkLabel.LinkColor = Color.Gray;
-        LogOutLinkLabel.Location = new Point(579, 73);
+        LogOutLinkLabel.Location = new Point(586, 73);
         LogOutLinkLabel.Name = "LogOutLinkLabel";
         LogOutLinkLabel.Size = new Size(60, 20);
         LogOutLinkLabel.TabIndex = 6;
@@ -156,13 +160,48 @@ partial class MainForm
         LogOutLinkLabel.VisitedLinkColor = Color.Gray;
         LogOutLinkLabel.LinkClicked += LogOutLinkLabel_LinkClicked;
         // 
+        // ScrollBarOverflowRightPanel
+        // 
+        ScrollBarOverflowRightPanel.BackColor = Color.FromArgb(13, 17, 23);
+        ScrollBarOverflowRightPanel.Location = new Point(652, 110);
+        ScrollBarOverflowRightPanel.Name = "ScrollBarOverflowRightPanel";
+        ScrollBarOverflowRightPanel.Size = new Size(10, 448);
+        ScrollBarOverflowRightPanel.TabIndex = 1;
+        // 
+        // ScrollBarOverflowLeftPanel
+        // 
+        ScrollBarOverflowLeftPanel.BackColor = Color.FromArgb(13, 17, 23);
+        ScrollBarOverflowLeftPanel.Location = new Point(639, 110);
+        ScrollBarOverflowLeftPanel.Name = "ScrollBarOverflowLeftPanel";
+        ScrollBarOverflowLeftPanel.Size = new Size(10, 448);
+        ScrollBarOverflowLeftPanel.TabIndex = 2;
+        // 
+        // ScrollBarOverflowTopPanel
+        // 
+        ScrollBarOverflowTopPanel.BackColor = Color.FromArgb(13, 17, 23);
+        ScrollBarOverflowTopPanel.Location = new Point(639, 110);
+        ScrollBarOverflowTopPanel.Name = "ScrollBarOverflowTopPanel";
+        ScrollBarOverflowTopPanel.Size = new Size(23, 23);
+        ScrollBarOverflowTopPanel.TabIndex = 1;
+        // 
+        // ScrollBarOverflowBottomPanel
+        // 
+        ScrollBarOverflowBottomPanel.BackColor = Color.FromArgb(13, 17, 23);
+        ScrollBarOverflowBottomPanel.Location = new Point(639, 535);
+        ScrollBarOverflowBottomPanel.Name = "ScrollBarOverflowBottomPanel";
+        ScrollBarOverflowBottomPanel.Size = new Size(23, 23);
+        ScrollBarOverflowBottomPanel.TabIndex = 2;
+        // 
         // MainForm
         // 
         AutoScaleDimensions = new SizeF(8F, 20F);
         AutoScaleMode = AutoScaleMode.Font;
-        AutoScroll = true;
         BackColor = Color.FromArgb(1, 4, 9);
         ClientSize = new Size(675, 705);
+        Controls.Add(ScrollBarOverflowBottomPanel);
+        Controls.Add(ScrollBarOverflowTopPanel);
+        Controls.Add(ScrollBarOverflowLeftPanel);
+        Controls.Add(ScrollBarOverflowRightPanel);
         Controls.Add(LogOutLinkLabel);
         Controls.Add(SignUpButton);
         Controls.Add(LogInButton);
@@ -192,4 +231,8 @@ partial class MainForm
     private Button LogInButton;
     private Button SignUpButton;
     private LinkLabel LogOutLinkLabel;
+    private Panel ScrollBarOverflowBottomPanel;
+    private Panel ScrollBarOverflowTopPanel;
+    private Panel ScrollBarOverflowLeftPanel;
+    private Panel ScrollBarOverflowRightPanel;
 }
