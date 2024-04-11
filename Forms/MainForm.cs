@@ -85,26 +85,17 @@ namespace Wall
                 // подключемся к хабу
                 await MyHubConnection.StartAsync();
                 ShowMessage("System", "Connection started.");
+                foreach (var publication in await MyHubConnection.InvokeAsync<List<Publication>>("ReceiveAll"))
+                {
+                    ShowMessage(await MyHubConnection.InvokeAsync<string>("ReceiveUsernameById", publication.UserId), publication.Message, publication.Date);
+                }
             }
             catch (Exception ex)
             {
                 ShowMessage("System", ex.Message);
             }
 
-            try
-            {
-                await MyHubConnection.InvokeAsync("ReceiveAll");
-            }
-            catch (Exception ex)
-            {
-                ShowMessage("System", ex.Message);
-            }
-
-            if (AuthorizedUser != null)
-            {
-                UsernameLabel.Text = "Guest";
-                NewMessageTextBox.Enabled = false;
-            }
+            await Task.Delay(1);
             AllMessagesPanel.VerticalScroll.Value = AllMessagesPanel.VerticalScroll.Maximum;
 
 
