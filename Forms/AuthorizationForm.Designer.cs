@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(AuthorizationForm));
             TitleBarPanel = new Components.TitleBarPanel();
             SubmitButton = new Button();
             UsernameTextBox = new TextBox();
@@ -185,6 +186,7 @@
             Controls.Add(SubmitButton);
             Controls.Add(TitleBarPanel);
             FormBorderStyle = FormBorderStyle.None;
+            Icon = (Icon)resources.GetObject("$this.Icon");
             Name = "AuthorizationForm";
             Text = "AuthorizationForm";
             Load += AuthorizationForm_Load;
