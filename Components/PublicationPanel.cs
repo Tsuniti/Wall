@@ -13,6 +13,7 @@ using System.Runtime.InteropServices;
 using System.Diagnostics;
 using System.Reflection.Emit;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement.StartPanel;
 namespace Wall.Components
 {
     public partial class PublicationPanel : UserControl
@@ -22,21 +23,34 @@ namespace Wall.Components
         [System.Runtime.InteropServices.DllImport("user32.dll")]
         private static extern bool ShowCaret(IntPtr hWnd);
 
-        Publication? publication;
+        Publication? Publication;
 
         public PublicationPanel()
         {
             InitializeComponent();
         }
-        public PublicationPanel(Publication newPublication, string username)
+        //public PublicationPanel(Publication newPublication, string username)
+        //{
+        //    InitializeComponent();
+        //    Publication = newPublication;
+        //    PsernameLabel.Text = username + ':';
+        //    MessageLabel.Text = Publication.Message;
+        //    DateLabel.Text = Publication.Date.ToString();
+
+        //}
+        public PublicationPanel(string username,  string message, DateTime? date = null)
         {
             InitializeComponent();
-            publication = newPublication;
-            usernameLabel.Text = username + ':'; // не уверен
-            messageLabel.Text = publication.message;
-            dateLabel.Text = publication.date.ToString();
-
+            PsernameLabel.Text = username + ':';
+            MessageLabel.Text = message;
+            if (date == null )
+            {
+                DateLabel.Text = DateTime.Now.ToString();
+            } 
+            else
+            {
+                DateLabel.Text = date.ToString();
+            }
         }
-
     }
 }
