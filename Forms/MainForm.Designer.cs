@@ -29,6 +29,7 @@ partial class MainForm
     /// </summary>
     private void InitializeComponent()
     {
+        System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
         AllMessagesPanel = new Panel();
         WriteMessagePanel = new Panel();
         SendButton = new Button();
@@ -210,6 +211,7 @@ partial class MainForm
         Controls.Add(AllMessagesPanel);
         Controls.Add(TitleBarPanel);
         FormBorderStyle = FormBorderStyle.None;
+        Icon = (Icon)resources.GetObject("$this.Icon");
         Name = "MainForm";
         Text = "MainForm";
         Load += MainForm_Load;
