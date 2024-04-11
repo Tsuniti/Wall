@@ -112,9 +112,8 @@ partial class MainForm
         UsernameLabel.ForeColor = Color.White;
         UsernameLabel.Location = new Point(16, 59);
         UsernameLabel.Name = "UsernameLabel";
-        UsernameLabel.Size = new Size(177, 32);
+        UsernameLabel.Size = new Size(0, 32);
         UsernameLabel.TabIndex = 3;
-        UsernameLabel.Text = "UsernameLabel";
         // 
         // LogInButton
         // 

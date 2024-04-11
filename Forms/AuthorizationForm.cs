@@ -61,6 +61,7 @@ namespace Wall.Forms
 
         public void LogInPaint()
         {
+            ErrorLabel.Text = String.Empty;
             RepeatPasswordTextBox.Visible = false;
             TopLabel.Text = "Log in";
             this.Height = 355;
@@ -76,6 +77,7 @@ namespace Wall.Forms
         {
             RepeatPasswordTextBox.Visible = true;
             TopLabel.Text = "Sign up";
+            ErrorLabel.Text = String.Empty;
             this.Height = 422;
             SubmitButton.Text = "Registration";
             SubmitButton.Click -= LogInButton_Click;
@@ -166,6 +168,7 @@ namespace Wall.Forms
 
                     Close();
                 }
+                else ErrorLabel.Text = "Wrong username or password";
             }
             catch (Exception ex)
             {
@@ -175,7 +178,7 @@ namespace Wall.Forms
 
         private void InvisibleAcceptButton_Click(object sender, EventArgs e)
         {
-
+            ErrorLabel.Text = String.Empty;
             if (ActiveControl == UsernameTextBox)
             {
                 PasswordTextBox.Focus();
